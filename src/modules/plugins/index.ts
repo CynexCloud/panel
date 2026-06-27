@@ -12,6 +12,8 @@ import { PluginInstaller } from './plugin.installer';
 import { PluginIsolationService } from './plugin.isolation';
 import { SecurityScanner } from './plugin.scanner';
 import { CompatibilityMatrixService } from './plugin.compatibility';
+import { getServerStatus } from '../../handlers/utils/server/serverStatus';
+import { checkForServerInstallation } from '../../handlers/checkForServerInstallation';
 import fs from 'fs';
 import path from 'path';
 
@@ -24,6 +26,25 @@ const upload = multer({
 const getAuthenticatedUser = (req: Request) => {
   return req.session?.user;
 };
+
+function getServerStatusInput(server: any) {
+  return {
+    nodeAddress: server.node.address,
+    nodePort: server.node.port,
+    serverUUID: server.UUID,
+    nodeKey: server.node.key,
+  };
+}
+
+function getImageFeatures(image: any): string[] {
+  if (!image) return [];
+  try {
+    const info = typeof image.info === 'string' ? JSON.parse(image.info) : image.info;
+    return Array.isArray(info?.features) ? info.features : [];
+  } catch {
+    return [];
+  }
+}
 
 const pluginModule = {
   info: {
@@ -65,7 +86,6 @@ const pluginModule = {
         : await prisma.server.findMany({ where: { ownerId: user.id }, include: { node: true, image: true } });
 
       const settings = await prisma.settings.findUnique({ where: { id: 1 } });
-      const components = (global as any).uiComponentStore ? (global as any).uiComponentStore.getComponents() : {};
 
       res.render('desktop/plugins/index', {
         title: 'Plugin Marketplace',
@@ -73,15 +93,43 @@ const pluginModule = {
         req,
         settings,
         servers,
-        selectedServerUuid: req.query.server || (servers[0]?.UUID || ''),
-        components
+        selectedServerUuid: req.query.server || (servers[0]?.UUID || '')
       });
     });
 
     // Server Tab Redirect/View
     router.get('/server/:id/plugins', isAuthenticatedForServer('id'), async (req: Request, res: Response) => {
-      const serverId = req.params.id;
-      res.redirect(`/plugins?server=${serverId}`);
+      try {
+        const serverId = String(req.params.id);
+        const server = (await prisma.server.findUnique({
+          where: { UUID: serverId },
+          include: { node: true, image: true, owner: true }
+        })) as any;
+
+        if (!server) {
+          return res.status(404).send('Server not found.');
+        }
+
+        const user = getAuthenticatedUser(req);
+        const settings = await prisma.settings.findUnique({ where: { id: 1 } });
+        const features = getImageFeatures(server.image);
+        const serverStatus = await getServerStatus(getServerStatusInput(server));
+        const installed = await checkForServerInstallation(serverId);
+
+        res.render('desktop/plugins/index', {
+          title: 'Plugins',
+          user,
+          req,
+          settings,
+          server,
+          serverStatus,
+          features,
+          installed,
+          selectedServerUuid: server.UUID
+        });
+      } catch (err: any) {
+        res.status(500).send(err.message);
+      }
     });
 
     // =========================================================================

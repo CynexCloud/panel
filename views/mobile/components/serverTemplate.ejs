@@ -8,6 +8,7 @@
     %>
     <a href="/server/<%= server.UUID %>" class="nav-link2 px-3 py-2 text-xs font-medium rounded-lg border border-transparent text-neutral-600 dark:text-neutral-400 whitespace-nowrap" data-active="false">Console</a>
     <a href="/server/<%= server.UUID %>/files" class="nav-link2 px-3 py-2 text-xs font-medium rounded-lg border border-transparent text-neutral-600 dark:text-neutral-400 whitespace-nowrap" data-active="false">Files</a>
+    <a href="/server/<%= server.UUID %>/plugins" class="nav-link2 px-3 py-2 text-xs font-medium rounded-lg border border-transparent text-neutral-600 dark:text-neutral-400 whitespace-nowrap" data-active="false">Plugins</a>
     <% if (features.includes('players')) { %>
     <a href="/server/<%= server.UUID %>/players" class="nav-link2 px-3 py-2 text-xs font-medium rounded-lg border border-transparent text-neutral-600 dark:text-neutral-400 whitespace-nowrap" data-active="false">Players</a>
     <% } %>

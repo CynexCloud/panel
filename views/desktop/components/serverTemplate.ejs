@@ -24,6 +24,12 @@
                       Files
                    </a>
                 </li>
+                <li class="transition">
+                   <a href="/server/<%= server.UUID %>/plugins" class="nav-link2 py-2 px-3 transition border hover:bg-neutral-100 dark:hover:bg-white/5 border-transparent hover:text-neutral-900 dark:hover:text-white hover:shadow rounded-xl data-[active=true]:bg-neutral-200 data-[active=true]:border-neutral-300 dark:data-[active=true]:bg-white/10 dark:data-[active=true]:border-neutral-300/20 data-[active=true]:text-neutral-900 dark:data-[active=true]:text-white data-[active=true]:font-medium data-[active=true]:shadow-sm">
+                    <%- icon('puzzle', { class: 'size-5 mb-0.5 inline-flex mr-1' }) %>
+                       Plugins
+                    </a>
+                </li>
                 <% if (features.includes('players')) { %>
                 <li class="transition">
                   <a href="/server/<%= server.UUID %>/players" class="nav-link2 py-2 px-3 transition border hover:bg-neutral-100 dark:hover:bg-white/5 border-transparent hover:text-neutral-900 dark:hover:text-white hover:shadow rounded-xl data-[active=true]:bg-neutral-200 data-[active=true]:border-neutral-300 dark:data-[active=true]:bg-white/10 dark:data-[active=true]:border-neutral-300/20 data-[active=true]:text-neutral-900 dark:data-[active=true]:text-white data-[active=true]:font-medium data-[active=true]:shadow-sm">
