@@ -101,7 +101,7 @@ const analyticsModule: Module = {
                 const r = await axios({
                   method: 'get',
                   url: `${daemonSchemeSync()}://${node.address}:${node.port}`,
-                  auth: { username: 'Cynex', password: node.key },
+                  auth: { username: 'Airlink', password: node.key },
                   timeout: TIMEOUT,
                 });
                 return {

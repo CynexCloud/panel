@@ -15,7 +15,7 @@ export class PluginInstaller {
     return {
       baseUrl: `${scheme}://${server.node.address}:${server.node.port}`,
       auth: {
-        username: 'Cynex',
+        username: 'Airlink',
         password: server.node.key
       }
     };

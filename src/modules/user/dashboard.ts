@@ -68,7 +68,7 @@ const dashboardModule: Module = {
                 method: 'GET',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}`,
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key,
                 },
                 timeout: 2000,
@@ -135,7 +135,7 @@ const dashboardModule: Module = {
                 method: 'GET',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/status`,
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key,
                 },
                 params: { id: server.UUID },
@@ -153,7 +153,7 @@ const dashboardModule: Module = {
                     method: 'GET',
                     url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/stats`,
                     auth: {
-                      username: 'Cynex',
+                      username: 'Airlink',
                       password: server.node.key,
                     },
                     params: { id: server.UUID },

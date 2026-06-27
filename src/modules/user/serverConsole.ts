@@ -148,7 +148,7 @@ async function proxyConsole(
             `${daemonSchemeSync()}://${node.address}:${node.port}/container/command`,
             { id: serverId, command },
             {
-              auth: { username: 'Cynex', password: node.key },
+              auth: { username: 'Airlink', password: node.key },
               timeout: 10_000,
             },
           );

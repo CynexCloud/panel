@@ -236,7 +236,7 @@ const radarModule: Module = {
             },
             {
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               headers: {
@@ -336,7 +336,7 @@ const radarModule: Module = {
             },
             {
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               headers: {

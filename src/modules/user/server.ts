@@ -149,7 +149,7 @@ function getServerDaemonAddress(server: Pick<ServerPageServer, 'node'>, path: st
 
 function getServerDaemonAuth(server: Pick<ServerPageServer, 'node'>): { username: string; password: string } {
   return {
-    username: 'Cynex',
+    username: 'Airlink',
     password: server.node.key,
   };
 }
@@ -398,7 +398,7 @@ const dashboardModule: Module = {
             }),
             axios.get(
               `${daemonSchemeSync()}://${node.address}:${node.port}/container/status/${server.UUID}`,
-              { auth: { username: 'Cynex', password: node.key }, timeout: 4000 }
+              { auth: { username: 'Airlink', password: node.key }, timeout: 4000 }
             ).then(r => r.data.state as string).catch(() => null),
           ]);
 
@@ -491,7 +491,7 @@ const dashboardModule: Module = {
                 method: 'POST',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/stop`,
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key,
                 },
                 headers: {
@@ -630,7 +630,7 @@ const dashboardModule: Module = {
             method: 'GET',
             url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/list?id=${server.UUID}&path=${path}`,
             auth: {
-              username: 'Cynex',
+              username: 'Airlink',
               password: server.node.key,
             },
             headers: {
@@ -758,7 +758,7 @@ const dashboardModule: Module = {
             responseType: 'text',
             params: { id: server.UUID, path: filePath },
             auth: {
-              username: 'Cynex',
+              username: 'Airlink',
               password: server.node.key,
             },
           });
@@ -1212,7 +1212,7 @@ const dashboardModule: Module = {
                 port: parseInt(primaryPort, 10),
               },
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               timeout: 8000,
@@ -1324,7 +1324,7 @@ const dashboardModule: Module = {
               method: 'GET',
               url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/list?id=${server.UUID}`,
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               headers: {
@@ -1459,7 +1459,7 @@ const dashboardModule: Module = {
               method: 'POST',
               url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/rename`,
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               headers: {
@@ -1554,7 +1554,7 @@ const dashboardModule: Module = {
                 method: 'POST',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/upload`,
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key,
                 },
                 headers: {
@@ -1585,7 +1585,7 @@ const dashboardModule: Module = {
                 method: 'POST',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/create-empty-file`,
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key,
                 },
                 data: {
@@ -1613,7 +1613,7 @@ const dashboardModule: Module = {
                   method: 'POST',
                   url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/append-file`,
                   auth: {
-                    username: 'Cynex',
+                    username: 'Airlink',
                     password: server.node.key,
                   },
                   data: {
@@ -1832,7 +1832,7 @@ const dashboardModule: Module = {
               method: 'GET',
               url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/status`,
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               params: { id: serverId },
@@ -1993,7 +1993,7 @@ const dashboardModule: Module = {
               method: 'GET',
               url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/status`,
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               params: { id: serverId },
@@ -2157,7 +2157,7 @@ const dashboardModule: Module = {
               method: 'GET',
               url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/status`,
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               params: { id: serverId },
@@ -2394,7 +2394,7 @@ const dashboardModule: Module = {
             method: 'DELETE',
             url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container`,
             auth: {
-              username: 'Cynex',
+              username: 'Airlink',
               password: server.node.key,
             },
             headers: {
@@ -2514,7 +2514,7 @@ const dashboardModule: Module = {
                     method: 'POST',
                     url: `${daemonSchemeSync()}://${serverToReinstall.node.address}:${serverToReinstall.node.port}/container/install`,
                     auth: {
-                      username: 'Cynex',
+                      username: 'Airlink',
                       password: serverToReinstall.node.key,
                     },
                     headers: {
@@ -2688,7 +2688,7 @@ const dashboardModule: Module = {
             },
             {
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               timeout: 300000,
@@ -2708,7 +2708,7 @@ const dashboardModule: Module = {
                   method: 'GET',
                   url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/backup/download`,
                   params: { backupPath: filePath },
-                  auth: { username: 'Cynex', password: server.node.key },
+                  auth: { username: 'Airlink', password: server.node.key },
                   responseType: 'stream',
                 });
 
@@ -2727,7 +2727,7 @@ const dashboardModule: Module = {
                     `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/backup`,
                     {
                       data: { backupPath: filePath },
-                      auth: { username: 'Cynex', password: server.node.key },
+                      auth: { username: 'Airlink', password: server.node.key },
                     }
                   ).catch(e => logger.warn(`Failed to delete temporary local backup: ${e}`));
                   
@@ -2835,7 +2835,7 @@ const dashboardModule: Module = {
                   backupUuid: backup.UUID
                 },
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key
                 },
                 data: cloudDownloadResponse.data,
@@ -2866,7 +2866,7 @@ const dashboardModule: Module = {
             },
             {
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: server.node.key,
               },
               timeout: 300000,
@@ -2879,7 +2879,7 @@ const dashboardModule: Module = {
               `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/backup`,
               {
                 data: { backupPath: backupPath },
-                auth: { username: 'Cynex', password: server.node.key },
+                auth: { username: 'Airlink', password: server.node.key },
               }
             ).catch(e => logger.warn(`Failed to delete temporary restore file: ${e}`));
           }
@@ -2970,7 +2970,7 @@ const dashboardModule: Module = {
               backupPath: backup.filePath,
             },
             auth: {
-              username: 'Cynex',
+              username: 'Airlink',
               password: server.node.key,
             },
             responseType: 'stream',
@@ -3046,7 +3046,7 @@ const dashboardModule: Module = {
                     backupPath: backup.filePath,
                   },
                   auth: {
-                    username: 'Cynex',
+                    username: 'Airlink',
                     password: server.node.key,
                   },
                 },

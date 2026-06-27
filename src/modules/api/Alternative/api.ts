@@ -673,7 +673,7 @@ const coreModule: Module = {
                     requestBody,
                     {
                       auth: {
-                        username: 'Cynex',
+                        username: 'Airlink',
                         password: server.node.key,
                       },
                       headers: {

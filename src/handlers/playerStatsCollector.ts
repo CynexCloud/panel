@@ -58,7 +58,7 @@ export async function collectPlayerStats(): Promise<void> {
               port: primaryPort
             },
             auth: {
-              username: 'Cynex',
+              username: 'Airlink',
               password: server.node.key,
             },
             timeout: 5000

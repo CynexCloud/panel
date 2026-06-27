@@ -260,7 +260,7 @@ const adminModule: Module = {
                     axios.delete(
                       `${daemonSchemeSync()}://${node.address}:${node.port}/container`,
                       {
-                        auth: { username: 'Cynex', password: node.key },
+                        auth: { username: 'Airlink', password: node.key },
                         data: { id: server.UUID },
                         timeout: 8000,
                       },
@@ -474,7 +474,7 @@ const adminModule: Module = {
             `${daemonSchemeSync()}://${node.address}:${node.port}/stats`,
             {
               auth: {
-                username: 'Cynex',
+                username: 'Airlink',
                 password: node.key,
               },
               headers: {

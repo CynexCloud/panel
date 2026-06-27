@@ -218,7 +218,7 @@ const adminModule: Module = {
                 method: 'POST',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container/stop`,
                 auth: {
-                  username: 'Cynex',
+                  username: 'Airlink',
                   password: server.node.key,
                 },
                 headers: {
@@ -559,7 +559,7 @@ const adminModule: Module = {
                         env,
                       },
                       {
-                        auth: { username: 'Cynex', password: server.node.key },
+                        auth: { username: 'Airlink', password: server.node.key },
                         headers: { 'Content-Type': 'application/json' },
                         timeout: 600000,
                       },
@@ -589,7 +589,7 @@ const adminModule: Module = {
                         })),
                       },
                       {
-                        auth: { username: 'Cynex', password: server.node.key },
+                        auth: { username: 'Airlink', password: server.node.key },
                         headers: { 'Content-Type': 'application/json' },
                       },
                     );
@@ -600,7 +600,7 @@ const adminModule: Module = {
                         `${daemonUrl}/container/installer`,
                         { id: server.UUID, env, script: native.CMD, container: native.container, entrypoint: 'bash' },
                         {
-                          auth: { username: 'Cynex', password: server.node.key },
+                          auth: { username: 'Airlink', password: server.node.key },
                           headers: { 'Content-Type': 'application/json' },
                           timeout: 600000,
                         },
@@ -671,7 +671,7 @@ const adminModule: Module = {
                   `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container`,
                   {
                     auth: {
-                      username: 'Cynex',
+                      username: 'Airlink',
                       password: server.node.key,
                     },
                     headers: {

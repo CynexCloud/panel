@@ -85,11 +85,11 @@ function serializeRequestBody(data: unknown): string {
 }
 
 // Install once at panel startup. After this, every axios request that carries
-// { auth: { username: 'Cynex', password: key } } automatically gets
+// { auth: { username: 'Airlink', password: key } } automatically gets
 // X-Cynex-Timestamp and X-Cynex-Signature headers added.
 export function installDaemonRequestInterceptor(): void {
   axios.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-    if (!config.auth || config.auth.username !== 'Cynex') {
+    if (!config.auth || config.auth.username !== 'Airlink') {
       return config;
     }
 

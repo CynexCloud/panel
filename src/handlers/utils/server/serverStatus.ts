@@ -23,7 +23,7 @@ export async function getServerStatus(serverInfo: ServerInfo): Promise<ServerSta
     const response = await axios({
       method: 'GET',
       url: `${daemonSchemeSync()}://${serverInfo.nodeAddress}:${serverInfo.nodePort}/container/status`,
-      auth: { username: 'Cynex', password: serverInfo.nodeKey },
+      auth: { username: 'Airlink', password: serverInfo.nodeKey },
       params: { id: serverInfo.serverUUID },
       timeout: 3000,
     });

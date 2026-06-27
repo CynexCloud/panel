@@ -104,7 +104,7 @@ const adminModule: Module = {
                     port: primaryPort
                   },
                   auth: {
-                    username: 'Cynex',
+                    username: 'Airlink',
                     password: server.node.key,
                   },
                   timeout: 5000

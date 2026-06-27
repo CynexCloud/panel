@@ -37,7 +37,7 @@ export async function checkEulaStatus(serverId: string): Promise<CheckEulaResult
       url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/fs/file/content`,
       responseType: 'text',
       params: { id: server.UUID, path: 'eula.txt' },
-      auth: { username: 'Cynex', password: server.node.key },
+      auth: { username: 'Airlink', password: server.node.key },
     });
 
     return { accepted: (eulaResponse.data as string).includes('eula=true') };
@@ -76,7 +76,7 @@ export const isWorld = async (folderName: string, serverInfo: ServerInfo): Promi
       method: 'GET',
       url: `${daemonSchemeSync()}://${serverInfo.nodeAddress}:${serverInfo.nodePort}/fs/list`,
       params: { id: serverInfo.serverUUID, path: folderName },
-      auth: { username: 'Cynex', password: serverInfo.nodeKey },
+      auth: { username: 'Airlink', password: serverInfo.nodeKey },
       timeout: 5000,
     });
 

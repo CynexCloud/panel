@@ -88,7 +88,7 @@ const sftpModule: Module = {
                 method: 'DELETE',
                 url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/sftp/credentials`,
                 data: { id: server.UUID },
-                auth: { username: 'Cynex', password: server.node.key },
+                auth: { username: 'Airlink', password: server.node.key },
                 timeout: 10000,
               });
             } catch {
@@ -100,7 +100,7 @@ const sftpModule: Module = {
             method: 'POST',
             url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/sftp/credentials`,
             data: { id: server.UUID },
-            auth: { username: 'Cynex', password: server.node.key },
+            auth: { username: 'Airlink', password: server.node.key },
             timeout: 15000,
           });
 
@@ -154,7 +154,7 @@ const sftpModule: Module = {
             method: 'DELETE',
             url: `${daemonSchemeSync()}://${server.node.address}:${server.node.port}/sftp/credentials`,
             data: { id: server.UUID },
-            auth: { username: 'Cynex', password: server.node.key },
+            auth: { username: 'Airlink', password: server.node.key },
             timeout: 10000,
           });
 

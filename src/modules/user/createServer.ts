@@ -269,7 +269,7 @@ const userCreateServerModule: Module = {
                   `${daemonUrl}/container/installer`,
                   { id: server.UUID, script: inst.script, container: inst.container, entrypoint: inst.entrypoint || 'bash', env },
                   {
-                    auth: { username: 'Cynex', password: server.node.key },
+                    auth: { username: 'Airlink', password: server.node.key },
                     headers: { 'Content-Type': 'application/json' },
                     timeout: 600000,
                   },
@@ -297,7 +297,7 @@ const userCreateServerModule: Module = {
                     })),
                   },
                   {
-                    auth: { username: 'Cynex', password: server.node.key },
+                    auth: { username: 'Airlink', password: server.node.key },
                     headers: { 'Content-Type': 'application/json' },
                     timeout: 600000,
                   },
@@ -341,7 +341,7 @@ const userCreateServerModule: Module = {
         if (!force) {
           try {
             await axios.delete(`${daemonSchemeSync()}://${server.node.address}:${server.node.port}/container`, {
-              auth: { username: 'Cynex', password: server.node.key },
+              auth: { username: 'Airlink', password: server.node.key },
               headers: { 'Content-Type': 'application/json' },
               data: { id: server.UUID },
             });
